@@ -19,7 +19,7 @@ kubectl apply -f 01-deployments-and-services.yaml
 
 # Verify deployments and services
 kubectl get deploy,svc
-```
+
 Answers:
 
 IngressClass name: nginx
@@ -66,10 +66,11 @@ kubectl describe ingress basic-ingress
 curl --resolve "myapp.local:80:<ADDRESS>" http://myapp.local/
 curl --resolve "myapp.local:80:<ADDRESS>" http://myapp.local/api
 Answer:
-Why one Ingress replaces 2 NodePort services: One Ingress can handle multiple paths and routes to internal ClusterIP services, so NodePort is not needed for external access
+Why one Ingress replaces 2 NodePort services: One Ingress can handle
+ multiple paths and routes to internal ClusterIP services, so NodePort is not needed for external access
 3-
 File: 06-ingress-full-lab.yaml
-```
+
 apiVersion: networking.k8s.io/v1
 kind: Ingress
 metadata:
@@ -102,8 +103,8 @@ spec:
           service:
             name: admin-svc
             port:
-              number: 80
-```
+         number: 80
+
               # Delete previous Ingress
 kubectl delete ingress basic-ingress
 
@@ -123,7 +124,7 @@ Routing table shows 3 rules for /, /api, /admin.
 4-
 
 File: 03-ingress-host-based.yaml
-```
+
 apiVersion: networking.k8s.io/v1
 kind: Ingress
 metadata:
@@ -162,7 +163,7 @@ spec:
             port:
               number: 80
 
-```
+
           # Delete previous Ingress
 kubectl delete ingress lab-ingress
 
