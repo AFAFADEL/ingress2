@@ -66,7 +66,6 @@ kubectl describe ingress basic-ingress
 curl --resolve "myapp.local:80:<ADDRESS>" http://myapp.local/
 curl --resolve "myapp.local:80:<ADDRESS>" http://myapp.local/api
 Answer:
-```
 Why one Ingress replaces 2 NodePort services: One Ingress can handle multiple paths and routes to internal ClusterIP services, so NodePort is not needed for external access
 3-
 File: 06-ingress-full-lab.yaml
@@ -116,7 +115,7 @@ curl --resolve "myapp.local:80:<ADDRESS>" http://myapp.local/
 curl --resolve "myapp.local:80:<ADDRESS>" http://myapp.local/api
 curl --resolve "myapp.local:80:<ADDRESS>" http://myapp.local/admin
 curl --resolve "myapp.local:80:<ADDRESS>" http://myapp.local/random
-```
+
 answer:
 /random returns 404 Not Found
 
