@@ -110,7 +110,7 @@ kubectl delete ingress basic-ingress
 
 # Apply full lab Ingress
 kubectl apply -f 06-ingress-full-lab.yaml
-```
+
 # Test all paths (replace <ADDRESS> with Ingress IP)
 curl --resolve "myapp.local:80:<ADDRESS>" http://myapp.local/
 curl --resolve "myapp.local:80:<ADDRESS>" http://myapp.local/api
@@ -164,15 +164,14 @@ spec:
               number: 80
 
 ```
-  ```            # Delete previous Ingress
+          # Delete previous Ingress
 kubectl delete ingress lab-ingress
 
 # Apply host-based Ingress
 kubectl apply -f 03-ingress-host-based.yaml
 
 # Describe Ingress
-kubectl describe ingress host-ingress
-```
+kubectl describe ingress host-ingres
 # Test subdomains (replace <ADDRESS> with Ingress IP)
 curl --resolve "myapp.local:80:<ADDRESS>" http://myapp.local
 curl --resolve "api.myapp.local:80:<ADDRESS>" http://api.myapp.local
@@ -226,7 +225,6 @@ kubectl delete ingress host-ingress
 
 # Apply PathType demo
 kubectl apply -f 05-ingress-path-types.yaml
-```
 # Test
 curl --resolve "myapp.local:80:<ADDRESS>" http://myapp.local/api/users     # Prefix matches /api
 curl --resolve "myapp.local:80:<ADDRESS>" http://myapp.local/admin         # Exact match
